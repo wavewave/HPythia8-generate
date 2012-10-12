@@ -8,17 +8,25 @@ Author:		Ian-Woo Kim
 Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type: 	Simple
 Cabal-Version:  >= 1.8
-Data-files: template/HPythia8-generate.cabal.st
+Data-files: template/HPythia8.cabal.st
 
 Executable HPythia8-generate
   Main-is: HPythia8-generate.hs
   hs-source-dirs: exe
   ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
   ghc-prof-options: -caf-all -auto-all
-  Build-Depends: base>4, fficxx, HPythiaROOT-generate
+  Build-Depends: base>4, fficxx, HPythia8-generate
   Other-Modules: Command
                  Helpers
+
+Library
+  hs-source-dirs: lib
+  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
+  ghc-prof-options: -caf-all -auto-all
+  Build-Depends: base>4, 
+                 fficxx >= 0.1.0.999 && < 0.1.2
+
+  Exposed-Modules: 
                  Pythia8.Desc.Annotate
                  Pythia8.Desc.Module
                  Pythia8.Desc
-
